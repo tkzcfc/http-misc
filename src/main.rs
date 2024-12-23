@@ -12,7 +12,7 @@ struct QueryIpResponse {
 #[get("api/query_ip/json")]
 pub async fn api_query_ip_json(req: HttpRequest) -> actix_web::Result<impl Responder> {
     let response = QueryIpResponse {
-        status: "status".into(),
+        status: "success".into(),
         query: if let Some(x) = req.connection_info().realip_remote_addr() {
             x.to_string()
         } else {
